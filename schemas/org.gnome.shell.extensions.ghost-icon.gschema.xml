@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="ghost-icon@defau1t-laptop" path="/org/gnome/shell/extensions/ghost-icon/">
+    
+    <key name="interval" type="i">
+      <default>300</default>
+      <summary>Intervalo de aparição</summary>
+      <description>Segundos entre cada aparição do fantasma.</description>
+    </key>
+
+    <key name="show-duration" type="i">
+      <default>3</default>
+      <summary>Duração da visibilidade</summary>
+      <description>Quantos segundos o fantasma fica na tela.</description>
+    </key>
+
+  </schema>
+</schemalist>

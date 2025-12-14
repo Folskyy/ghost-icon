@@ -1,10 +1,20 @@
-DES_DIR="/home/defau1t/.local/share/gnome-shell/extensions/ghost-icon@defau1t-laptop/"
-ORG_DIR="/home/defau1t/Documents/ghost-icon/"
+#!/usr/bin/env bash
+set -e
 
-mkdir $DES_DIR
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-cp ${ORG_DIR}"extension.js" "${DES_DIR}"
-cp ${ORG_DIR}"prefs.js" "${DES_DIR}"
-cp ${ORG_DIR}"metadata.json" "${DES_DIR}"
-cp ${ORG_DIR}"icon.png" "${DES_DIR}"
-cp -r ${ORG_DIR}"schemas" "${DES_DIR}"
+EXT_NAME="ghost-icon@Folskyy"
+DES_DIR="$HOME/.local/share/gnome-shell/extensions/$EXT_NAME"
+ORG_DIR="$SCRIPT_DIR"
+
+mkdir -p "$DES_DIR"
+
+cp "$ORG_DIR/extension.js" "$DES_DIR/"
+cp "$ORG_DIR/prefs.js" "$DES_DIR/"
+cp "$ORG_DIR/metadata.json" "$DES_DIR/"
+cp "$ORG_DIR/icon.png" "$DES_DIR/"
+cp -r "$ORG_DIR/schemas" "$DES_DIR/"
+
+echo "Extension copied to $DES_DIR"
+echo "Script executed"
+

@@ -5,39 +5,41 @@ import { ExtensionPreferences } from 'resource:///org/gnome/Shell/Extensions/js/
 
 export default class GhostIconPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
-        // Carrega as configurações automaticamente baseadas no Schema compilado
+        // Automatically load the settings based on the compiled schemas
         const settings = this.getSettings();
 
         const page = new Adw.PreferencesPage();
         const group = new Adw.PreferencesGroup({
-            title: 'Comportamento do Fantasma',
-            description: 'Configure quando e como ele aparece.'
+            title: 'Ghost Icon settings',
+            description: 'Set when and how the icon appears.'
         });
 
-        // 1. Configuração de Intervalo
+        // 1. Interval settings
         const intervalRow = new Adw.SpinRow({
-            title: 'Intervalo (segundos)',
-            subtitle: 'Tempo de espera entre as aparições',
+            title: 'Interval (seconds)',
+            subtitle: 'Time between the appearances',
             adjustment: new Gtk.Adjustment({
-                lower: 5,        // Mínimo 5 segundos
-                upper: 3600,     // Máximo 1 hora
-                step_increment: 10,
+                lower: 5,             // Minimum allowed interval (5 seconds)
+                upper: 3600*12,      // Maximum allowed interval (12 hours)
+                step_increment: 10, // Increment step when using arrows or scroll
             }),
         });
-        // Vincula o valor visual à configuração gravada
+        // Bind the SpinRow value directly to the GSettings key.
+        // Changes are persisted automatically.
         settings.bind('interval', intervalRow, 'value', Gio.SettingsBindFlags.DEFAULT);
         group.add(intervalRow);
 
-        // 2. Configuração de Duração
+        // 2. Duration setting
         const durationRow = new Adw.SpinRow({
-            title: 'Duração (segundos)',
-            subtitle: 'Quanto tempo ele fica visível na tela',
+            title: 'Duration (seconds)',
+            subtitle: 'How much time the icon stay visible on the screen',
             adjustment: new Gtk.Adjustment({
                 lower: 1,
                 upper: 60,
                 step_increment: 1,
             }),
         });
+        
         settings.bind('show-duration', durationRow, 'value', Gio.SettingsBindFlags.DEFAULT);
         group.add(durationRow);
 

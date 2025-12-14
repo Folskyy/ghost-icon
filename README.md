@@ -1,6 +1,6 @@
 # Ghost Icon GNOME Extension
 
-Ghost Icon is a GNOME Shell extension that periodically displays a ghost icon on your screen. It's a fun and lightweight extension designed to work as an reminder to something (ex: blink your eyes).
+Ghost Icon is a GNOME Shell extension that periodically displays a ghost icon on your screen. It's a lightweight extension designed to work as an reminder to something (ex: blink your eyes).
 
 ## Features
 
@@ -28,7 +28,7 @@ Ghost Icon is a GNOME Shell extension that periodically displays a ghost icon on
 
 4. Enable the extension:
    - `gnome-extensions enable ghost-icon@Folskyy`
-   
+
     *The script `activate.sh` already does it.*
 
 
@@ -36,8 +36,8 @@ Ghost Icon is a GNOME Shell extension that periodically displays a ghost icon on
 
 You can customize the extension's behavior via the preferences window:
 
-- **Interval (seconds)**: Set the time between ghost appearances.
-- **Duration (seconds)**: Set how long the ghost stays visible.
+- **Interval (seconds)**: Set the time between ghost icon appearances.
+- **Duration (seconds)**: Set how long the ghost icon stays visible.
 
 ### Prerequisites
 
@@ -66,6 +66,6 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 ## Acknowledgments
 
 - Built with [GNOME Shell Extensions](https://wiki.gnome.org/Projects/GnomeShell/Extensions).
-- Inspired by the fun of adding a little surprise to the desktop.
+- Inspired by the fun of adding a little surprise to the desktop and not blink for 5 hours straight.
 
 ---

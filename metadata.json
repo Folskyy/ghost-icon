@@ -1,0 +1,13 @@
+{
+  "uuid": "ghost-icon@defau1t-laptop",
+  "name": "Ghost Icon",
+  "description": "Exibe um ícone fantasma na tela a cada 5 minutos.",
+  "shell-version": [
+    "45",
+    "46",
+    "47"
+  ],
+  "url": "",
+  "version": 1,
+  "settings-schema": "ghost-icon@defau1t-laptop"
+}

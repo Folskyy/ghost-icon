@@ -28,6 +28,7 @@ Ghost Icon is a GNOME Shell extension that periodically displays a ghost icon on
 
 4. Enable the extension:
    - `gnome-extensions enable ghost-icon@Folskyy`
+   
     *The script `activate.sh` already does it.*
 
 

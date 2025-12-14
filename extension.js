@@ -12,7 +12,7 @@ export default class GhostIconExtension extends Extension {
     enable() {
         log('GhostIcon: enable');
 
-        // Carrega as configurações
+        // Settings load
         this._settings = this.getSettings();
 
         const iconFile = Gio.File.new_for_path(`${this.path}/icon.png`);
@@ -25,7 +25,7 @@ export default class GhostIconExtension extends Extension {
             opacity: 0,
         });
 
-        // Aparece em tela cheia
+        // Display even in Fullscreen mode
         Main.layoutManager.addChrome(this._icon, { trackFullscreen: true });
         
         this._updatePosition();
@@ -36,13 +36,14 @@ export default class GhostIconExtension extends Extension {
             () => this._updatePosition()
         );
 
-        // Observa mudanças nas configurações para reiniciar o timer se necessário
+        // Restart the timer when the interval setting changes
+
         this._settingsChangedId = this._settings.connect('changed::interval', () => {
             log('GhostIcon: Intervalo alterado pelo usuário, reiniciando timer...');
             this._startTimer();
         });
 
-        // Inicia o loop
+        // Start the loop
         this._startTimer();
     }
 
@@ -71,10 +72,10 @@ export default class GhostIconExtension extends Extension {
     }
 
     _startTimer() {
-        // Remove timer anterior se existir
+        // Ensure no previous timer is running
         this._stopTimer();
 
-        // Lê o valor atual das configurações
+        // Read the current interval from settings
         const interval = this._settings.get_int('interval');
 
         this._intervalId = GLib.timeout_add_seconds(
@@ -106,7 +107,7 @@ export default class GhostIconExtension extends Extension {
         this._icon.show();
         this._icon.opacity = 255;
 
-        // Lê a duração configurada neste momento
+        // Read the actual duration
         const showDuration = this._settings.get_int('show-duration');
 
         this._icon.ease({
@@ -122,6 +123,8 @@ export default class GhostIconExtension extends Extension {
     _updatePosition() {
         if (!this._icon) return;
 
+        // Position the icon on the bottom-right corner
+        // of the primary monitor, respecting margins.
         const monitorIdx = global.display.get_primary_monitor();
         const monitor = global.display.get_monitor_geometry(monitorIdx);
 

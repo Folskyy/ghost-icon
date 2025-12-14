@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="ghost-icon@defau1t-laptop" path="/org/gnome/shell/extensions/ghost-icon/">
+  <schema id="ghost-icon@Folskyy" path="/org/gnome/shell/extensions/ghost-icon@Folskyy/">
     
     <key name="interval" type="i">
       <default>300</default>
